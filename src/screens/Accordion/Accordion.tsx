@@ -23,7 +23,7 @@ const AccordionItem = ({item, open, handlePress}: ItemProps): JSX.Element => {
     const {id, name, children, color} = item;
 
     const isOpen = useDerivedValue<number>(() => {
-        return withTiming(open.value === id ? 1 : 0, {duration: 1000});
+        return withTiming(open.value === id ? 1 : 0, {duration: 500});
     });
 
     const childrenAnimatedStyle = useAnimatedStyle(() => ({
@@ -48,7 +48,7 @@ const AccordionItem = ({item, open, handlePress}: ItemProps): JSX.Element => {
 };
 
 const AccordionScreen = (): JSX.Element => {
-    const open = useSharedValue<number | null>(0);
+    const open = useSharedValue<number | null>(null);
 
     const handlePress = useCallback(id => (open.value = open.value === id ? null : id), [open]);
 
