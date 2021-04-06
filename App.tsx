@@ -1,14 +1,16 @@
 import React from 'react';
 import {StatusBar} from 'react-native';
+import {ThemeProvider} from 'styled-components';
+import {theme} from './src/services/theme';
 // router
 import {Routes} from './src/routes';
 
 const App = (): JSX.Element => {
     return (
-        <React.Fragment>
-            <StatusBar backgroundColor="#cdcdcd" />
+        <ThemeProvider theme={theme}>
+            <StatusBar backgroundColor={theme.colors.bg} barStyle="dark-content" />
             <Routes />
-        </React.Fragment>
+        </ThemeProvider>
     );
 };
 
