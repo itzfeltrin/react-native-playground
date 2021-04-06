@@ -2,7 +2,7 @@ import React from 'react';
 // components
 import {Text, View} from 'react-native';
 
-const Home = (): JSX.Element => {
+const HomeScreen = (): JSX.Element => {
     return (
         <View>
             <Text>JAJAJA</Text>
@@ -10,4 +10,4 @@ const Home = (): JSX.Element => {
     );
 };
 
-export default Home;
+export default HomeScreen;
