@@ -1,4 +1,5 @@
 import React from 'react';
+// components
 import {Text, View} from 'react-native';
 
 const Home = (): JSX.Element => {
