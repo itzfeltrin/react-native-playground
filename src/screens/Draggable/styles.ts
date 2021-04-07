@@ -3,7 +3,9 @@ import styled, {css} from 'styled-components/native';
 
 export const DRAGGABLE_SIZE = 128;
 
-export const Box = styled(Animated.View)`
+export const Outer = styled(Animated.View)``;
+
+export const Inner = styled(Animated.View)`
     ${({theme: {colors}}) => css`
         width: ${DRAGGABLE_SIZE}px;
         height: ${DRAGGABLE_SIZE}px;

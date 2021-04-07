@@ -1,26 +1,32 @@
-import React, {useCallback} from 'react';
+import React, {createRef} from 'react';
 import {
     PanGestureHandler,
     PanGestureHandlerGestureEvent,
     PinchGestureHandler,
     PinchGestureHandlerGestureEvent,
 } from 'react-native-gesture-handler';
-import Animated, {
+import {
+    interpolateColor,
     useAnimatedGestureHandler,
     useAnimatedStyle,
     useSharedValue,
     withDecay,
+    withTiming,
 } from 'react-native-reanimated';
 import {withBouncing} from 'react-native-redash';
 // components
 import {Container} from '../../common';
 import {SCREEN_WIDTH, SCREEN_HEIGHT} from '../../constants';
-import {Box, DRAGGABLE_SIZE} from './styles';
+import {Outer, Inner, DRAGGABLE_SIZE} from './styles';
 
 const DraggableScreen = (): JSX.Element => {
-    const x = useSharedValue<number>(0);
-    const y = useSharedValue<number>(0);
+    const x = useSharedValue<number>(SCREEN_WIDTH / 2 - DRAGGABLE_SIZE / 2);
+    const y = useSharedValue<number>(SCREEN_HEIGHT / 2 - DRAGGABLE_SIZE / 2);
     const scale = useSharedValue<number>(1);
+
+    // refs
+    const panRef = createRef<PanGestureHandler>();
+    const pinchRef = createRef<PinchGestureHandler>();
 
     const handleDrag = useAnimatedGestureHandler<PanGestureHandlerGestureEvent>({
         onStart: (_, ctx) => {
@@ -49,34 +55,32 @@ const DraggableScreen = (): JSX.Element => {
         },
     });
 
-    // const handlePinch = useCallback(
-    //     (event: PinchGestureHandlerGestureEvent) => {
-    //         const {nativeEvent} = event;
-    //         const value = Number(nativeEvent.scale.toFixed(2));
-    //         scale.value = value;
-    //     },
-    //     [scale],
-    // );
-
     const handlePinch = useAnimatedGestureHandler<PinchGestureHandlerGestureEvent>({
-        onStart: (evt, ctx) => {
-            console.log(evt, ctx);
+        onActive: event => {
+            scale.value = event.scale;
+        },
+        onEnd: () => {
+            scale.value = withTiming(1, {duration: 500});
         },
     });
 
-    // animated style
-    const boxAnimatedStyle = useAnimatedStyle(() => ({
-        transform: [{translateX: x.value}, {translateY: y.value}, {scale: scale.value}, {perspective: 200}],
+    // animated styles
+    const outerAnimatedStyle = useAnimatedStyle(() => ({
+        transform: [{translateX: x.value}, {translateY: y.value}],
+    }));
+    const innerAnimatedStyle = useAnimatedStyle(() => ({
+        transform: [{scale: scale.value}],
+        backgroundColor: interpolateColor(scale.value, [1, 2, 3], ['#0071ba', '#4aa548', '#ff0000']) as string,
     }));
 
     return (
         <Container padding={0}>
-            <PanGestureHandler onGestureEvent={handleDrag}>
-                <Animated.View>
-                    <PinchGestureHandler onGestureEvent={handlePinch}>
-                        <Box style={boxAnimatedStyle} />
+            <PanGestureHandler onGestureEvent={handleDrag} ref={panRef} simultaneousHandlers={pinchRef}>
+                <Outer style={outerAnimatedStyle}>
+                    <PinchGestureHandler onGestureEvent={handlePinch} ref={pinchRef} simultaneousHandlers={panRef}>
+                        <Inner style={innerAnimatedStyle} />
                     </PinchGestureHandler>
-                </Animated.View>
+                </Outer>
             </PanGestureHandler>
         </Container>
     );
