@@ -17,4 +17,9 @@ export const items: HomeItemProps[] = [
         name: 'Draggable',
         to: 'DraggableScreen',
     },
+    {
+        id: 2,
+        name: 'Swipeable',
+        to: 'SwipeableScreen',
+    },
 ];

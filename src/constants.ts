@@ -8,6 +8,7 @@ export type RouteType = {
     HomeScreen: undefined;
     AccordionScreen: undefined;
     DraggableScreen: undefined;
+    SwipeableScreen: undefined;
 };
 
 /**
