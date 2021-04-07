@@ -1,11 +1,13 @@
 import {Dimensions} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 
+export const SCREEN_WIDTH = Dimensions.get('screen').width;
 export const SCREEN_HEIGHT = Dimensions.get('screen').height;
 
 export type RouteType = {
     HomeScreen: undefined;
     AccordionScreen: undefined;
+    DraggableScreen: undefined;
 };
 
 /**

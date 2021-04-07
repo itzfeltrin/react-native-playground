@@ -1,13 +1,12 @@
-import styled, {css} from 'styled-components/native';
+import styled from 'styled-components/native';
 import {FlatList} from 'react-native';
 import {HomeItemProps} from './mock';
 
-export const Container = styled.View`
-    ${({theme: {colors}}) => css`
-        flex: 1;
-        background-color: ${colors.bg};
-        padding: 16px;
-    `}
+export const Title = styled.Text`
+    font-weight: bold;
+    font-size: 32px;
+    color: #000;
+    text-align: center;
 `;
 
 export const Menus = styled(FlatList as new () => FlatList<HomeItemProps>).attrs({
@@ -18,7 +17,7 @@ export const Item = styled.TouchableOpacity`
     border: 1px solid #000;
     padding: 12px;
     border-radius: 8px;
-    margin-bottom: 8px;
+    margin-top: 16px;
 `;
 
 export const Name = styled.Text`

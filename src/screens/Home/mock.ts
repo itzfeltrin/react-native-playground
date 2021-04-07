@@ -12,4 +12,9 @@ export const items: HomeItemProps[] = [
         name: 'Accordion',
         to: 'AccordionScreen',
     },
+    {
+        id: 1,
+        name: 'Draggable',
+        to: 'DraggableScreen',
+    },
 ];

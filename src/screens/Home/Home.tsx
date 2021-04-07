@@ -3,7 +3,8 @@ import {useNavigation} from '@react-navigation/core';
 import {MainScreenProps} from '../../constants';
 import {items, HomeItemProps} from './mock';
 // components
-import {Container, Menus, Item, Name} from './styles';
+import {Container} from '../../common';
+import {Menus, Item, Name, Title} from './styles';
 
 const HomeItem = ({name, to}: HomeItemProps): JSX.Element => {
     const navigation = useNavigation<MainScreenProps<'HomeScreen'>>();
@@ -18,6 +19,7 @@ const HomeItem = ({name, to}: HomeItemProps): JSX.Element => {
 const HomeScreen = (): JSX.Element => {
     return (
         <Container>
+            <Title>React Native{'\n'}Playground</Title>
             <Menus data={items} renderItem={({item}) => <HomeItem {...item} />} keyExtractor={({id}) => `${id}`} />
         </Container>
     );
