@@ -7,6 +7,7 @@ import {HomeScreen} from '../screens/Home';
 import {AccordionScreen} from '../screens/Accordion';
 import {DraggableScreen} from '../screens/Draggable';
 import {SwipeableScreen} from '../screens/Swipeable';
+import {TypicalScreen} from '../screens/Typical';
 
 const Stack = createStackNavigator<RouteType>();
 
@@ -16,6 +17,7 @@ const Navigator = () => (
         <Stack.Screen name="AccordionScreen" component={AccordionScreen} />
         <Stack.Screen name="DraggableScreen" component={DraggableScreen} />
         <Stack.Screen name="SwipeableScreen" component={SwipeableScreen} />
+        <Stack.Screen name="TypicalScreen" component={TypicalScreen} />
     </Stack.Navigator>
 );
 

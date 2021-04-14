@@ -19,7 +19,12 @@ export const items: HomeItemProps[] = [
     },
     {
         id: 2,
-        name: 'Swipeable',
+        name: 'Swipesable',
         to: 'SwipeableScreen',
+    },
+    {
+        id: 3,
+        name: 'Typical',
+        to: 'TypicalScreen',
     },
 ];
