@@ -8,16 +8,18 @@ import {AccordionScreen} from '../screens/Accordion';
 import {DraggableScreen} from '../screens/Draggable';
 import {SwipeableScreen} from '../screens/Swipeable';
 import {TypicalScreen} from '../screens/Typical';
+import {AnimatableScreen} from '../screens/Animatable';
 
 const Stack = createStackNavigator<RouteType>();
 
 const Navigator = () => (
     <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
-        <Stack.Screen name="AccordionScreen" component={AccordionScreen} />
-        <Stack.Screen name="DraggableScreen" component={DraggableScreen} />
-        <Stack.Screen name="SwipeableScreen" component={SwipeableScreen} />
-        <Stack.Screen name="TypicalScreen" component={TypicalScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Accordion" component={AccordionScreen} />
+        <Stack.Screen name="Draggable" component={DraggableScreen} />
+        <Stack.Screen name="Swipeable" component={SwipeableScreen} />
+        <Stack.Screen name="Typical" component={TypicalScreen} />
+        <Stack.Screen name="Animatable" component={AnimatableScreen} />
     </Stack.Navigator>
 );
 

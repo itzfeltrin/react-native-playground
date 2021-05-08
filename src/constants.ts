@@ -5,11 +5,12 @@ export const SCREEN_WIDTH = Dimensions.get('screen').width;
 export const SCREEN_HEIGHT = Dimensions.get('screen').height;
 
 export type RouteType = {
-    HomeScreen: undefined;
-    AccordionScreen: undefined;
-    DraggableScreen: undefined;
-    SwipeableScreen: undefined;
-    TypicalScreen: undefined;
+    Home: undefined;
+    Accordion: undefined;
+    Draggable: undefined;
+    Swipeable: undefined;
+    Typical: undefined;
+    Animatable: undefined;
 };
 
 /**

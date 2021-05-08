@@ -10,21 +10,26 @@ export const items: HomeItemProps[] = [
     {
         id: 0,
         name: 'Accordion',
-        to: 'AccordionScreen',
+        to: 'Accordion',
     },
     {
         id: 1,
         name: 'Draggable',
-        to: 'DraggableScreen',
+        to: 'Draggable',
     },
     {
         id: 2,
         name: 'Swipesable',
-        to: 'SwipeableScreen',
+        to: 'Swipeable',
     },
     {
         id: 3,
         name: 'Typical',
-        to: 'TypicalScreen',
+        to: 'Typical',
+    },
+    {
+        id: 4,
+        name: 'Animatable',
+        to: 'Animatable',
     },
 ];

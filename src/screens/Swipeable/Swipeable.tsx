@@ -1,4 +1,5 @@
 import React from 'react';
+import {PanGestureHandler, PanGestureHandlerGestureEvent} from 'react-native-gesture-handler';
 import {
     useAnimatedGestureHandler,
     useAnimatedStyle,
@@ -6,12 +7,11 @@ import {
     useSharedValue,
     withTiming,
 } from 'react-native-reanimated';
-import {PanGestureHandler, PanGestureHandlerGestureEvent} from 'react-native-gesture-handler';
+import {clamp} from 'react-native-redash';
 import {SwipeableItemProps, swipeableItems} from './mock';
 // components
 import {Container} from '../../common';
 import {BUTTON_WIDTH, List, Item, Row, Name, Age, Button, ButtonText} from './styles';
-import {clamp} from 'react-native-redash';
 
 const SwipeableItem = ({item}: {item: SwipeableItemProps}): JSX.Element => {
     const {name, age} = item;
